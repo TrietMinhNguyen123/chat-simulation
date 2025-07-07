@@ -1,0 +1,65 @@
+.SignupPage {
+  height: 100vh;
+  width:100vw;
+  background: linear-gradient(#B7E4C7,#52B788);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.logo{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 211px ;
+  height: 37px ;
+  color: white;
+  background: #2D6A4F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+}
+
+.login{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  color: #545454;
+  font-size: 25px;
+  text-shadow:0px 4px 4px rgb(133, 133, 133);
+  font-weight: bold;
+}
+
+.bot-image{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:259px;
+  height: 163px;
+  border-radius: 90px;
+  background: #74C69D;
+}
+
+#SignupForm{
+  display: flex;
+  flex-direction: column;  
+  padding: 25px;
+}
+
+h5{
+  color: #545454;
+  font-size: 18px;
+  text-shadow:0px 4px 4px rgb(133, 133, 133);
+}
+
+input{
+  margin: 5px 0;
+  padding: 15px;
+  width: 325px ;
+  height: 1px;
+  border-radius: 90px;
+  border: 0;
+  box-shadow: 0px 4px 4px 0px rgb(70, 70, 70);
+}
