@@ -1,4 +1,4 @@
-.SignupPage {
+.Page {
   height: 100vh;
   width:100vw;
   background: linear-gradient(#B7E4C7,#52B788);
@@ -25,11 +25,33 @@
 .login{
   position:absolute;
   top: 10px;
-  right: 10px;
+  right: 30px;
   color: #545454;
   font-size: 25px;
   text-shadow:0px 4px 4px rgb(133, 133, 133);
   font-weight: bold;
+  text-decoration: none;
+}
+
+.login:hover{
+  color: #00491c ;
+  transition:0.5s;
+}
+
+.signup:hover{
+  color: #00491c ;
+  transition: 0.5s;
+}
+
+.signup{
+  position:absolute;
+  top: 10px;
+  right: 20px;
+  color: #545454;
+  font-size: 25px;
+  text-shadow:0px 4px 4px rgb(133, 133, 133);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .bot-image{
@@ -40,18 +62,42 @@
   height: 163px;
   border-radius: 90px;
   background: #74C69D;
+  animation: bot-image ease 10s infinite;
 }
 
-#SignupForm{
+@keyframes bot-image{
+  0%{
+    /* width:259px;
+    height: 163px; */
+    scale: 100%;
+  }
+  50%{
+    /* width:261px;
+    height: 165px; */
+    scale:120%;
+  }
+  100%{
+    /* width:259px;
+    height: 163px; */
+    scale:100%;
+  }
+}
+
+#Form{
   display: flex;
   flex-direction: column;  
-  padding: 25px;
 }
 
+
+
 h5{
+  margin-bottom: 15px;
   color: #545454;
   font-size: 18px;
-  text-shadow:0px 4px 4px rgb(133, 133, 133);
+  text-shadow: 0px 4px 4px rgb(133, 133, 133);
+  /* -webkit-background-clip: text;
+  -moz-background-clip: text;
+       background-clip: text; */
 }
 
 input{
@@ -62,4 +108,11 @@ input{
   border-radius: 90px;
   border: 0;
   box-shadow: 0px 4px 4px 0px rgb(70, 70, 70);
+}
+
+
+.loginIcon{
+  width: 30px;
+  height: 30px;
+  padding: 13px 0px 0px;
 }

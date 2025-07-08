@@ -1,0 +1,52 @@
+.ChatPage{
+    display:flex;
+    height: 100vh;
+    width:100vw;
+    background: linear-gradient(#B7E4C7,#52B788);
+}
+
+.logo{
+    position:absolute;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    width: 220px ;
+    height: 37px ;
+    color: white;
+    background: #2D6A4F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+  }
+
+.Side_bar{
+    display: flex;
+    position: relative;
+    height: 100vh;
+    width: 220px;
+    background: #D8F3DC;
+    border-bottom-right-radius: 40px;
+}
+
+.chat_interaction{
+    display: flex;
+    width:auto;
+    height:100vh;
+    position:relative;
+}
+
+.Search_location{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+
+}
+.Search_bar{
+    font-weight: bold;
+}
+
