@@ -32,22 +32,36 @@
 
 .chat_interaction{
     display: flex;
-    width:auto;
+    width:87%;
     height:100vh;
+    justify-content: center;
     position:relative;
 }
-
-.Search_location{
-    display: flex;
-    position: fixed;
-    width: 105vw;
-    bottom:15px;
-    padding: 0px 0px 10px 80px;
-
+.search_container{
+    position: relative;
+    width: 100%;
+    height: 4vh;
+    bottom: 0;
 }
 .Search_bar{
+    justify-content: center;
+    position: fixed;
     font-weight: bold;
     height: 4vh;
     width: 80%;
+    bottom: 15px;
 }
 
+
+.search_glass{
+    position: absolute;
+    width: 20px;
+    height: auto;
+    left: 90px;
+}
+
+
+.sendButton2{
+    width:19px;
+    height: 19px;
+}
