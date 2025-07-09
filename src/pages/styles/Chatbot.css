@@ -10,7 +10,7 @@
     top: 0;
     z-index: 1;
     left: 0;
-    width: 220px ;
+    width: 13% ;
     height: 37px ;
     color: white;
     background: #2D6A4F;
@@ -25,7 +25,7 @@
     display: flex;
     position: relative;
     height: 100vh;
-    width: 220px;
+    width: 13%;
     background: #D8F3DC;
     border-bottom-right-radius: 40px;
 }
@@ -39,14 +39,15 @@
 
 .Search_location{
     display: flex;
-    justify-content: center;
     position: fixed;
-    width: 100%;
-    bottom: 0;
-
+    width: 105vw;
+    bottom:15px;
+    padding: 0px 0px 10px 80px;
 
 }
 .Search_bar{
     font-weight: bold;
+    height: 4vh;
+    width: 80%;
 }
 
