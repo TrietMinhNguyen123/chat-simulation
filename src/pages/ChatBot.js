@@ -8,8 +8,10 @@ function ChatBot() {
         <div className='logo'>Chat simulation</div>
         <div className='Side_bar'></div>
         <div className="chat_interaction">
-        <input className='Search_bar2' type="text" placeholder="Search your answer.."/>
+        <div className='Search_container'>
+        <input className='Search_bar' type="text" placeholder="Search your answer.."/>
           <img class="sendButton2" src={sendButton}></img>
+        </div>
         </div>
     </div>
   );

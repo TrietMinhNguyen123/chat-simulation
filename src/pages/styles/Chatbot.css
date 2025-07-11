@@ -52,16 +52,20 @@
     bottom: 15px;
 }
 
-
-.search_glass{
-    position: absolute;
-    width: 20px;
-    height: auto;
-    left: 90px;
+.Search_container{
+    position:fixed;
+    bottom: 15px;
+    display: grid;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .sendButton2{
     width:19px;
     height: 19px;
+    position: absolute;
+    justify-content: flex-end;
+    right:7px;
+    z-index: 1;
 }
