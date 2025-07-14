@@ -3,7 +3,7 @@ import addChat from "../img/addChat.png";
 import setting from "../img/setting.png";
 import policy from "../img/policy.png"
 
-export default function Sidebar(){
+function Sidebar(){
     const [showSetting, setShowSetting] = useState(false);
     const [theme, setTheme] = useState("light");
     return(
@@ -53,3 +53,5 @@ export default function Sidebar(){
     </>
     )
 }
+
+export default Sidebar;
