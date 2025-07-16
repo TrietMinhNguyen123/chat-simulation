@@ -2,72 +2,95 @@ import React, {useState, useEffect} from "react";
 import addChat from "../img/addChat.png";
 import setting from "../img/setting.png";
 import policy from "../img/policy.png"
+import ConversationSave from "../utility/Conversation"
+
+function Sidebar({onSessionSelected}){
+  const storedSessions = localStorage.getItem("chat-messages");
+  const parsedSessions = storedSessions ? JSON.parse(storedSessions) : {};
+  const sessionIds = Object.keys(parsedSessions);
 
 
-function toggleTheme(selectedValue){
-  const themeElement = document.getElementById("Chatpage");
-  if (selectedValue == "dark") {
-    themeElement.classList.remove("dark")
-  } else {
-    themeElement.classList.add("dark");
+  const [openModal, setOpenModal] = useState(null);
+  const [theme, setTheme] = useState('dark');
+  
+  function toggleTheme(selectedValue){
+    const themeElement = document.getElementById("Chatpage");
+    setTheme(selectedValue)
+    if (selectedValue == "dark") {
+      themeElement.classList.remove("dark")
+    } else {
+      themeElement.classList.add("dark");
+    }
+    console.log(selectedValue)
+    localStorage.setItem("Mode",selectedValue)
   }
-}
+  
+  const[font, setFont] = useState("medium")
 
-function toggleFont(selectedValue){
-  const themeElement = document.getElementById("Chatpage");
-  if (selectedValue == "small"){
-  themeElement.classList.add("small-font")
-  themeElement.classList.remove("large-font")
-  } else if(selectedValue == "large"){
-    themeElement.classList.remove("small-font")
-    themeElement.classList.add("large-font")
-  } else {
-    themeElement.classList.remove("small-font")
-    themeElement.classList.remove("large-font")
+  function toggleFont(selectedValue){
+    setFont(selectedValue)
+    const themeElement = document.getElementById("Chatpage");
+    if (selectedValue == "small"){
+      themeElement.classList.add("small-font")
+      themeElement.classList.remove("large-font")
+    } else if(selectedValue == "large"){
+      themeElement.classList.remove("small-font")
+      themeElement.classList.add("large-font")
+    } else {
+      themeElement.classList.remove("small-font")
+      themeElement.classList.remove("large-font")
+    }
+    console.log(selectedValue);
+    localStorage.setItem("Font",selectedValue)
   }
-}
 
-function Sidebar(){
-    const [openModal, setOpenModal] = useState(null);
-    return(
+  useEffect(() =>{
+    const getFont = localStorage.getItem("Font")
+    setFont(getFont);
+    if(getFont){
+      setFont(getFont)
+    } 
+  })
+  return(
     <>
         {openModal && <div className="overlay" onClick={() => setOpenModal(null)}></div>}        
         <div id ="sidebar" className='Side_bar'>
           <div className="UI_feature">
-          <div id='NewChat' className="Content_container">
-            <img className="addchat" src={addChat}></img>
-            <p className='text_ui'>New Chat</p>
-          </div>
-          <div id='Setting' className="Content_container">
-            <img className="setting" onClick={() => setOpenModal("setting")}src={setting}></img>
-            <p className='text_ui'onClick={() => setOpenModal("setting")}>Setting</p>
-          </div>
-          <div id='Policy' className="Content_container pb-7">
-            <img className="policy" onClick={() => setOpenModal("policy")} src={policy}></img>
-            <p className='text_ui' onClick={() => setOpenModal("policy")}>Policy</p>
-          </div>
-          <div className='seperate_line'>
-          </div>
+            <div id='NewChat' className="Content_container">
+              <img className="addchat" src={addChat}></img>
+              <p className='text_ui'>New Chat</p>
+            </div>
+            <div id='Setting' className="Content_container">
+              <img className="setting" onClick={() => setOpenModal("setting")}src={setting}></img>
+              <p className='text_ui'onClick={() => setOpenModal("setting")}>Setting</p>
+            </div>
+            <div id='Policy' className="Content_container pb-7">
+              <img className="policy" onClick={() => setOpenModal("policy")} src={policy}></img>
+              <p className='text_ui' onClick={() => setOpenModal("policy")}>Policy</p>
+            </div>
+              <div className='seperate_line'>
+            </div>
+            <div className="chatLogs">
+              {sessionIds.map((id) => (
+                <ConversationSave key={id} id={id} onClick={() => onSessionSelected(id)} />
+              ))}
+            </div>
           </div>
         </div>
 
-        {openModal ==="setting" && (
+        {openModal === "setting" && (
             <div className="modal">
             <h2>Settings</h2>
             <label>
                Mode:
-              {/* <select>
-                <option value="light" onClick={toggleTheme}> Light</option>
-                <option value="dark" onClick={toggleTheme}> Dark</option>
-              </select> */}
-              <select onChange={(e) => toggleTheme(e.target.value)}>
+              <select value ={theme} onChange={(e) => toggleTheme(e.target.value)}>
                 <option value="dark">Light</option>
                 <option value="light">Dark</option>
               </select>
             </label>
             <label>
               Font Size:
-              <select onChange={(e) => toggleFont(e.target.value)}>
+              <select value={font} onChange={(e) => toggleFont(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium" selected>Medium</option>
                 <option value="large">Large</option>
@@ -77,10 +100,10 @@ function Sidebar(){
           </div>
         )}
         {openModal === "policy" && (
-            <div className="modal">
+            <div className="modal show">
             <h2> General Policy</h2>
             <h1>
-            To maximize innovation and creativity, we believe that you should be flexible in your use of our services as you see fit, as long as you comply with the law and do not harm yourself or others. When using any OpenAI service, such as ChatGPT, labs.openai.com, and the OpenAI API, these rules apply: 
+            To maximize innovation and creativity, we believe that you should be flexible in your use of our services as you see fit, as long as you comply with the law and do not harm yourself or others, these rules apply: 
             <br/><br/>
 
 1. Comply with applicable laws - for example, do not invade the privacy of others, engage in regulated activity that does not comply with applicable regulations, or promote or engage in any illegal activity, including the exploitation or harm of children, or the development or distribution of illegal substances, goods, or services.

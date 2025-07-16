@@ -4,7 +4,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: linear-gradient(#B7E4C7, #52B788);
+  background: linear-gradient(var( --color1,#B7E4C7), var(--color2,#52B788));
   z-index: 0; /* Ensure content is above the background */
 }
 
@@ -86,6 +86,7 @@
 /* Settings modal box */
 .modal {
   scroll-behavior: smooth ;
+  /* transition: transform; */
   display: flex;
   gap: 25px;
   flex-direction: column;
@@ -95,7 +96,8 @@
   border: 7px solid rgb(216, 216, 216);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.3s ease, opacity 0.3s ease;
   background: #fff;
   z-index: 20;
   padding: 30px;
@@ -103,6 +105,8 @@
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
   overflow-y: scroll;
 }
+
+
 h2{
   font-size: 20px;
   width: fit-content;
@@ -155,6 +159,8 @@ select{
     width: 13%;
     background: #D8F3DC;
     border-bottom-right-radius: 40px;
+  transition:  3s;
+    
 }
 /* ////////////////////////////////////////////////////////////////////////////////// CHAT INTERACTION //////////////////////////////////////////////////////////////////////// */
 .chat_interaction{
@@ -166,6 +172,7 @@ select{
     height:90vh;
     position:relative;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .Search_bar{
@@ -175,6 +182,8 @@ select{
     height: 4vh;
     width: 80%;
     bottom: 15px;
+    padding-right: 35px;
+    box-sizing: border-box;
 }
 
 .Search_container{
@@ -219,6 +228,16 @@ button{
     align-items: center;
     gap: 5px;
   }
+
+  input[type="color"]{
+    appearance: auto;
+    opacity: 1;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
   
 
 /* ///////////////////////////////////////////////////////////////// USER & BOT DISPLACEMENT /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -227,11 +246,16 @@ button{
   font-weight: 600;
   padding: 25px;
   border-radius: 35px;
-  align-items: center;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-  width: 623px;
+  width: auto;
+  height: auto;
+  max-width: 70%;
   height: fit-content;
   background: #D8F3DC;
+}
+
+.user {
+  align-items: end;
 }

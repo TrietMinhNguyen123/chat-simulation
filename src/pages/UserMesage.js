@@ -5,8 +5,8 @@ export default function UserMessage({message}){
 
     return(
         <>
-        <div className="w-full justify-end flex">
-            <div className="Contain-box">
+        <div className="w-full h-fit justify-end flex">
+            <div className="Contain-box user">
                 <p>{message}</p>
             </div>
         </div>
