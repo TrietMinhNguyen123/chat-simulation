@@ -18,7 +18,7 @@ function generateRandomId(length = 6) {
 
 // Setup Groq
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: "",
   dangerouslyAllowBrowser: true
 });
 
