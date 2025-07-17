@@ -51,6 +51,10 @@
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   transition: 0.5s;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .text_ui:hover {
@@ -159,9 +163,52 @@ select{
     width: 13%;
     background: #D8F3DC;
     border-bottom-right-radius: 40px;
-  transition:  3s;
-    
 }
+
+.chatLogs{
+  height: 1000px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: none;
+  padding: 10px;
+}
+
+
+
+.chatLogs::-webkit-scrollbar {
+  display: none;
+}
+
+.delete_container{
+  justify-content: end;
+  display: flex;
+}
+
+.delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 400;
+  right: 10px;    
+  top: 10px;
+  border-radius: 40%;
+  width: 35px;
+  height: 20px;
+}
+
+.Conversation_content{ 
+  padding-top: 15px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  width: 100%; 
+}
+
 /* ////////////////////////////////////////////////////////////////////////////////// CHAT INTERACTION //////////////////////////////////////////////////////////////////////// */
 .chat_interaction{
     display: flex;

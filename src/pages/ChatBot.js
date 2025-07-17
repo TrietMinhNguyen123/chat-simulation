@@ -7,18 +7,9 @@ import UserMessage from './UserMesage';
 import BotMessage from './BotMessage';
 import Groq from "groq-sdk";
 
-function generateRandomId(length = 6) {
-  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  for (let i = 0; i < length; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
-}
-
 // Setup Groq
 const groq = new Groq({
-  apiKey: "",
+  apiKey: "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",
   dangerouslyAllowBrowser: true
 });
 
@@ -30,6 +21,8 @@ async function fetchGroq(query) {
   });
   return response.choices[0]?.message?.content || "No response";
 }
+
+
 
 function ChatBot() {
   const [showMessage, setShowMessage] = useState([]);
@@ -46,16 +39,7 @@ function ChatBot() {
   }
   // 🔄 Load or create session on first mount
   useEffect(() => {
-    const existingData = JSON.parse(localStorage.getItem("chat-messages")) || {};
-    
-    const newSessionId = generateRandomId();
-    setChatSessionId(newSessionId);
-  
-    // Optionally restore messages if somehow the ID already existed
-    if (existingData[newSessionId]) {
-      setShowMessage(existingData[newSessionId]);
-    }
-  
+    // null
   }, []);  
 
   // 💾 Save messages to localStorage under current session ID
@@ -71,8 +55,12 @@ function ChatBot() {
   const handleChat = async (e) => {
     e.preventDefault();
     if (input.trim() === "") return;
-
+    let sessionId = chatSessionId;
     const userInput = input;
+    if(!sessionId){
+      sessionId = userInput;
+      setChatSessionId(sessionId)
+    }
     setInput("");
 
     try {

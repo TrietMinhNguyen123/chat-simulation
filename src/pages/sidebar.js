@@ -5,6 +5,8 @@ import policy from "../img/policy.png"
 import ConversationSave from "../utility/Conversation"
 
 function Sidebar({onSessionSelected}){
+
+
   const storedSessions = localStorage.getItem("chat-messages");
   const parsedSessions = storedSessions ? JSON.parse(storedSessions) : {};
   const sessionIds = Object.keys(parsedSessions);
@@ -51,14 +53,15 @@ function Sidebar({onSessionSelected}){
       setFont(getFont)
     } 
   })
+
   return(
     <>
         {openModal && <div className="overlay" onClick={() => setOpenModal(null)}></div>}        
         <div id ="sidebar" className='Side_bar'>
           <div className="UI_feature">
             <div id='NewChat' className="Content_container">
-              <img className="addchat" src={addChat}></img>
-              <p className='text_ui'>New Chat</p>
+              <img className="addchat" onClick = {() => window.location.reload()} src={addChat}></img>
+              <p className='text_ui' onClick ={() => window.location.reload()}>New Chat</p>
             </div>
             <div id='Setting' className="Content_container">
               <img className="setting" onClick={() => setOpenModal("setting")}src={setting}></img>
