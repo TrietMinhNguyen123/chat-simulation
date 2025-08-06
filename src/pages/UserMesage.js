@@ -6,7 +6,7 @@ export default function UserMessage({message}){
     return(
         <>
         <div className="w-full h-fit justify-end flex">
-            <div className="Contain-box user">
+            <div className="Contain-box">
                 <p>{message}</p>
             </div>
         </div>

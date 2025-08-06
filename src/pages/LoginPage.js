@@ -22,6 +22,7 @@ function LoginPage() {
       <div className="Page">
         <div className="logo">chat simulation</div>
         <Link to="/signup" className='signup'> Sign Up </Link>
+        <Link to="/chatbot" className='test'> Testing </Link>
         <div className="bot-image">
           <img src={robotImg} alt="Robot" />
         </div>

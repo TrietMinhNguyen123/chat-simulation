@@ -54,6 +54,22 @@
   text-decoration: none;
 }
 
+.test:hover{
+  color: #00491c ;
+  transition: 0.5s;
+}
+
+.test{
+  position:absolute;
+  top: 10px;
+  right: 8%;
+  color: #545454;
+  font-size: 25px;
+  text-shadow:0px 4px 4px rgb(133, 133, 133);
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .bot-image{
   display:flex;
   justify-content: center;

@@ -210,11 +210,31 @@ select{
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////// CHAT INTERACTION //////////////////////////////////////////////////////////////////////// */
+
+.logout:hover{
+  color: #00491c;
+  transition: 0.5s;
+}
+
+.logout{
+  position:absolute;
+  top: 10px;
+  right: 1%;
+  color: #545454;
+  font-size: 25px;
+  text-shadow:0px 4px 4px rgb(133, 133, 133);
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 3;
+}
+
 .chat_interaction{
+    scrollbar-width: none;
     display: flex;
     margin: 15px;
     flex-direction: column;
     padding-left:13%;
+    padding-top: 30px;
     width:100%;
     height:90vh;
     position:relative;
@@ -290,11 +310,10 @@ button{
 /* ///////////////////////////////////////////////////////////////// USER & BOT DISPLACEMENT /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .Contain-box{
+  white-space: break-spaces;
   font-weight: 600;
   padding: 25px;
   border-radius: 35px;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 15px;
   width: auto;
   height: auto;
@@ -302,6 +321,13 @@ button{
   height: fit-content;
   background: #D8F3DC;
 }
+
+
+.Contain-box.dark {
+    color: white;
+    background: #1B4332;
+}
+
 
 .user {
   align-items: end;
