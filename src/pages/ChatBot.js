@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../pages/styles/Chatbot.css';
 import '../../src/index.css';
 import sendButton from "../img/send.png";
@@ -112,6 +112,35 @@ function ChatBot() {
     }
   };
 
+  const textareaRef = useRef(null)
+
+  useEffect(()=>{
+    if(textareaRef.current){
+      const MaxHeightlimit = window.scrollHeight * 0.10;
+      const TrimmedInput = input.trim();
+      
+      if (TrimmedInput.length === 0){
+        textareaRef.current.style.height = "4vh";
+        textareaRef.current.style.overflowY = "hidden";
+        return;
+      }
+
+
+      textareaRef.current.style.overflowY = "auto";
+
+      let newHeight = textareaRef.current.scrollHeight;
+      if (newHeight > MaxHeightlimit){
+        newHeight = MaxHeightlimit;
+        textareaRef.current.style.overflowY = "auto";
+      }else if(newHeight < MaxHeightlimit && !textareaRef.current.style.height == "4vh"){
+        window.textarea.style.borderRadius = "50px";
+      }else {
+        textareaRef.current.style.overflowY = "hidden";
+      }
+      textareaRef.current.style.height = `${newHeight}px`;
+    }
+  },[input])
+
   // ⬇️ Auto scroll
   useEffect(() => {
     const chatInteraction = document.getElementsByClassName("chat_interaction")[0];
@@ -139,11 +168,38 @@ function ChatBot() {
       </div>
       <form className='Search_container' onSubmit={handleChat}>
         <textarea
+          ref ={textareaRef}
           className='Search_bar'
           onChange={(e) => setInput(e.target.value)}
           value={input}
           type="text"
           placeholder="Search your answer..."
+          onKeyDown={(e) =>{
+            if (e.key === "Enter" && !e.shiftKey){
+              e.preventDefault();
+              handleChat(e);
+            } else if(e.key === "Enter" && e.shiftKey){
+              e.preventDefault();
+              const textarea = e.target;
+              const start = textarea.selectionStart;
+              const end = textarea.selectionEnd;
+              const cost = textarea.value;
+
+              const beforeCursor =  cost.substring(0, start);
+              const lastLineBreack = beforeCursor.lastIndexOf("\n");
+              const currentLine = beforeCursor.substring(lastLineBreack + 1);
+              const indenMatch = currentLine.match(/^\s*/);
+              const indent = indenMatch ? indenMatch[0] : "";
+              
+              const newCost = cost.substring(0, start) + "\n" + indent + " " + cost.substring(end);
+
+              setInput(newCost);
+
+              setTimeout(()=>{
+                textarea.selectionStart = textarea.selectionEnd = start + 1 + indent.length + 2;
+              },0)
+            }
+          }}
         />
         <button type="submit">
           <img className="sendButton2" src={sendButton} alt="Send" />

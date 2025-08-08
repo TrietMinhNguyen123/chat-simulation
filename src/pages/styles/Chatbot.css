@@ -152,6 +152,9 @@ select{
     padding-top: 5px ;
     display: flex;
     flex-direction: column;
+  white-space: normal;      /* allow wrapping */
+  word-wrap: break-word;    /* break long words */
+  overflow-wrap: anywhere;  /* force break if needed */
 }
 
 .Side_bar{
@@ -244,19 +247,20 @@ select{
 }
 
 .Search_bar{
+    padding: 5px;
     justify-content: center;
     position: fixed;
-    font-weight: bold;
     min-height: 4vh;
-    max-height: 20vh;
+    max-height: 8vh;
     width: 80%;
     bottom: 15px;
     font-size: 16px;
-    resize: none;
+    transition: height 0.2s ease;
     overflow-y: auto;
     padding-right: 35px;
     box-sizing: border-box;
 }
+
 
 .Search_container{
     position:fixed;
@@ -278,9 +282,9 @@ button{
     width:19px;
     height: 19px;
     bottom: 13px;
-    position: absolute;
+    position: relative;
     justify-content: flex-end;
-    right:12px;
+    left:38.5vw;
     z-index: 1;
 }
 
@@ -292,6 +296,9 @@ button{
     justify-content: center;
     height: fit-content;
     width: fit-content; 
+  white-space: normal;      /* allow wrapping */
+  word-wrap: break-word;    /* break long words */
+  overflow-wrap: anywhere;  /* force break if needed */
 }
 
 
@@ -332,6 +339,16 @@ button{
 #Chatpage.dark .Contain-box {
   background-color: #1B4332;
   color: white;
+}
+
+#Chatpage.dark .logout{
+  background:#40916C;
+  color: rgba(235, 235, 235, 0.79) ;
+  text-shadow:0px 4px 4px rgba(255, 255, 255, 0.73);
+}
+#Chatpage.dark .logout:hover{
+  color: #00491c;
+  transition: 0.5s;
 }
 
 .user {
