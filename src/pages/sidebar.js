@@ -16,16 +16,22 @@ function Sidebar({onSessionSelected}){
   const [theme, setTheme] = useState('dark');
   
   function toggleTheme(selectedValue){
-    const ContainBox = document.querySelector(".Contain-box");
+    const ContainBox = document.querySelectorAll(".Contain-box");
     const themeElement = document.getElementById("Chatpage");
     setTheme(selectedValue)
     if (selectedValue == "dark") {
       themeElement.classList.remove("dark");
-      ContainBox?.classList.remove("dark");
     } else {
-      ContainBox?.classList.add("dark");
       themeElement.classList.add("dark");
     }
+
+    ContainBox.forEach(box =>{
+      if(selectedValue == "dark"){
+        box.classList.remove("dark");
+      }else{
+        box.classList.add("dark");
+      }
+    })
     console.log(selectedValue)
     localStorage.setItem("Mode",selectedValue)
   }

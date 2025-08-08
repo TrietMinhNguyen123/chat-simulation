@@ -68,7 +68,7 @@
 
 .seperate_line{
   padding-top: 5px;
-  width: 100%;
+  width: 13vw;
   height: 48px;
   border-bottom: #2D6A4F 1px solid;
   border-top: #2D6A4F 1px solid;
@@ -221,7 +221,8 @@ select{
   top: 10px;
   right: 1%;
   color: #545454;
-  font-size: 25px;
+  font-size: 15px;
+  background:#B7E4C7;
   text-shadow:0px 4px 4px rgb(133, 133, 133);
   font-weight: bold;
   text-decoration: none;
@@ -246,9 +247,13 @@ select{
     justify-content: center;
     position: fixed;
     font-weight: bold;
-    height: 4vh;
+    min-height: 4vh;
+    max-height: 20vh;
     width: 80%;
     bottom: 15px;
+    font-size: 16px;
+    resize: none;
+    overflow-y: auto;
     padding-right: 35px;
     box-sizing: border-box;
 }
@@ -257,7 +262,7 @@ select{
     position:fixed;
     bottom: 15px;
     display: flex;
-    height: 5vh;
+    height: auto;
     width: 80%;
     justify-content: center;
     align-items: center;
@@ -272,9 +277,10 @@ button{
 .sendButton2{
     width:19px;
     height: 19px;
+    bottom: 13px;
     position: absolute;
     justify-content: flex-end;
-    right:10px;
+    right:12px;
     z-index: 1;
 }
 
@@ -305,6 +311,7 @@ button{
     background: none;
     cursor: pointer;
   }
+
   
 
 /* ///////////////////////////////////////////////////////////////// USER & BOT DISPLACEMENT /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -322,12 +329,10 @@ button{
   background: #D8F3DC;
 }
 
-
-.Contain-box.dark {
-    color: white;
-    background: #1B4332;
+#Chatpage.dark .Contain-box {
+  background-color: #1B4332;
+  color: white;
 }
-
 
 .user {
   align-items: end;

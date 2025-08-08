@@ -23,18 +23,12 @@ async function fetchGroq(query) {
     messages: [
     {
       role: "system",
-      content: `
-      You are a helpful assistant. Respond in the following format:
-      - Start with a header that includes an emoji and a brief summary of the topic (2 line breaks after).
-      - For each step:
-        - Use an emoji + step number + short title
-        - One line break below it
-        - Then provide a paragraph-style detailed explanation (no emojis in paragraph)
-        - One line break before the next step
-      - After all steps, add a "Recommended Prompt" with 2 line breaks above it
-
-      Avoid essay-style responses. Use markdown line breaks where needed.
-    `
+      content: `You are a friendly AI assistant like ChatGPT. 
+      Always explain your answers clearly, 😎 give examples when possible, and adapt tone to be conversational.When responding, you may add 3–5 relevant emojis that fit the idea, mood, or topic.
+  Place emojis naturally where they make sense — not every sentence needs one.
+  For example, if talking about pizza, you might use 🍕; 
+  if talking about coding, you might use 💻 or 🖥️.
+  Avoid random or irrelevant emojis.`
     },
       {
         role: "user",
@@ -144,7 +138,7 @@ function ChatBot() {
         ))}
       </div>
       <form className='Search_container' onSubmit={handleChat}>
-        <input
+        <textarea
           className='Search_bar'
           onChange={(e) => setInput(e.target.value)}
           value={input}
