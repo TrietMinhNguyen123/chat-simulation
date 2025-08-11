@@ -40,4 +40,8 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+    <script type="module">
+    import { inject } from './@vercel/analytics';
+    inject();
+  </script>
 </html>
