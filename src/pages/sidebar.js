@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import addChat from "../img/addChat.png";
 import setting from "../img/setting.png";
-import policy from "../img/policy.png"
-import ConversationSave from "../utility/Conversation"
+import policy from "../img/policy.png";
+import ConversationSave from "../utility/Conversation";
+import {motion} from "framer-motion";
 
 function Sidebar({onSessionSelected}){
 
@@ -94,7 +95,11 @@ function Sidebar({onSessionSelected}){
         </div>
 
         {openModal === "setting" && (
-            <div className="modal">
+            <motion.div
+            initial={{ opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.2, ease: "easeOut"}}
+             className="modal">
             <h2>Settings</h2>
             <label>
                Mode:
@@ -112,10 +117,14 @@ function Sidebar({onSessionSelected}){
               </select>
             </label>
             <button className="exits" onClick={() => setOpenModal(null)}>X</button>
-          </div>
+          </motion.div>
         )}
         {openModal === "policy" && (
-            <div className="modal show">
+            <motion.div
+            initial={{ opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.2, ease: "easeOut"}}
+            className="modal show">
             <h2> General Policy</h2>
             <h1>
             To maximize innovation and creativity, we believe that you should be flexible in your use of our services as you see fit, as long as you comply with the law and do not harm yourself or others, these rules apply: 
@@ -132,7 +141,7 @@ function Sidebar({onSessionSelected}){
 Respect our safeguards - do not remove safeguards or safety mitigations in our services unless supported by OpenAI (e.g., domain experts in our Red Team Network)⁠ or related to research conducted in accordance with our Sharing and Release Policy⁠. We specifically report child sexual abuse (CSAM) to the National Center for Missing and Exploited Children.
             </h1>
             <button className="exits" onClick={() => setOpenModal(null)}>X</button>
-          </div>
+          </motion.div>
         )}
     </>
     )
