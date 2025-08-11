@@ -13,27 +13,18 @@ function Sidebar({onSessionSelected}){
 
 
   const [openModal, setOpenModal] = useState(null);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   
   function toggleTheme(selectedValue){
-    const ContainBox = document.querySelectorAll(".Contain-box");
     const themeElement = document.getElementById("Chatpage");
     setTheme(selectedValue)
-    if (selectedValue == "dark") {
+    if (selectedValue == "light") {
       themeElement.classList.remove("dark");
     } else {
       themeElement.classList.add("dark");
     }
 
-    ContainBox.forEach(box =>{
-      if(selectedValue == "dark"){
-        box.classList.remove("dark");
-      }else{
-        box.classList.add("dark");
-      }
-    })
     console.log(selectedValue)
-    localStorage.setItem("Mode",selectedValue)
   }
   
   const[font, setFont] = useState("medium")
@@ -56,12 +47,24 @@ function Sidebar({onSessionSelected}){
   }
 
   useEffect(() =>{
-    const getFont = localStorage.getItem("Font")
+    const saveTheme = localStorage.getItem("Mode") || "light";
+    setTheme(saveTheme);
+    toggleTheme(saveTheme);
+    const getFont = localStorage.getItem("Font") || "medium";
     setFont(getFont);
-    if(getFont){
-      setFont(getFont)
-    } 
-  })
+    toggleFont(getFont);
+  },[])
+
+  function savingTheme(selectedValue){
+    setTheme(selectedValue);
+    toggleTheme(selectedValue);
+    localStorage.setItem("Mode", selectedValue);
+  }
+  function savingFont(selectedValue){
+    setFont(selectedValue);
+    toggleFont(selectedValue);
+    localStorage.setItem("Font", selectedValue);
+  }
 
   return(
     <>
@@ -95,14 +98,14 @@ function Sidebar({onSessionSelected}){
             <h2>Settings</h2>
             <label>
                Mode:
-              <select value ={theme} onChange={(e) => toggleTheme(e.target.value)}>
-                <option value="dark">Light</option>
-                <option value="light">Dark</option>
+              <select value ={theme} onChange={(e) => savingTheme(e.target.value)}>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
               </select>
             </label>
             <label>
               Font Size:
-              <select value={font} onChange={(e) => toggleFont(e.target.value)}>
+              <select value={font} onChange={(e) => savingFont(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium" selected>Medium</option>
                 <option value="large">Large</option>
