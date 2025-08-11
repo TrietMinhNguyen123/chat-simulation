@@ -117,9 +117,10 @@ function ChatBot() {
   useEffect(()=>{
     if(textareaRef.current){
       const MaxHeightlimit = window.scrollHeight * 0.10;
-      const TrimmedInput = input.trim();
+      const TrimmedInput = input.length >= 0 ;
       
       if (TrimmedInput.length === 0){
+        textareaRef.current.style.borderRadius = "90px";
         textareaRef.current.style.height = "4vh";
         textareaRef.current.style.overflowY = "hidden";
         return;
@@ -127,6 +128,7 @@ function ChatBot() {
 
 
       textareaRef.current.style.overflowY = "auto";
+      textareaRef.current.style.borderRadius = textareaRef.current.scrollHeight > MaxHeightlimit ? "90px" : "25px";
 
       let newHeight = textareaRef.current.scrollHeight;
       if (newHeight > MaxHeightlimit){
