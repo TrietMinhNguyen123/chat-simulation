@@ -73,16 +73,16 @@ function Sidebar({onSessionSelected}){
         <div id ="sidebar" className='Side_bar'>
           <div className="UI_feature">
             <div id='NewChat' className="Content_container">
-              <img className="addchat" onClick = {() => window.location.reload()} src={addChat}></img>
-              <p className='text_ui' onClick ={() => window.location.reload()}>New Chat</p>
+              <img className="addchat" draggable="false" onClick = {() => window.location.reload()} src={addChat}></img>
+              <p className='text_ui' draggable="false" onClick ={() => window.location.reload()}>New Chat</p>
             </div>
             <div id='Setting' className="Content_container">
-              <img className="setting" onClick={() => setOpenModal("setting")}src={setting}></img>
-              <p className='text_ui'onClick={() => setOpenModal("setting")}>Setting</p>
+              <img className="setting" draggable="false" onClick={() => setOpenModal("setting")}src={setting}></img>
+              <p className='text_ui' draggable="false" onClick={() => setOpenModal("setting")}>Setting</p>
             </div>
             <div id='Policy' className="Content_container pb-7">
-              <img className="policy" onClick={() => setOpenModal("policy")} src={policy}></img>
-              <p className='text_ui' onClick={() => setOpenModal("policy")}>Policy</p>
+              <img className="policy" draggable="false" onClick={() => setOpenModal("policy")} src={policy}></img>
+              <p className='text_ui' draggable="false" onClick={() => setOpenModal("policy")}>Policy</p>
             </div>
               <div className='seperate_line'>
             </div>

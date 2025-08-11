@@ -157,6 +157,7 @@ function ChatBot() {
       <div id="logo" className='logo'>Chat simulation</div>
       <Link to="/"
        className='logout'
+       draggable="false"
        onClick ={() => {
         localStorage.clear();
        }}>Log out</Link>
@@ -205,7 +206,7 @@ function ChatBot() {
           }}
         />
         <button type="submit">
-          <img className="sendButton2" src={sendButton} alt="Send" />
+          <img className="sendButton2" draggable="false" src={sendButton} alt="Send" />
         </button>
       </form>
     </div>

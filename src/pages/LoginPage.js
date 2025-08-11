@@ -22,14 +22,14 @@ function LoginPage() {
     return (
       <div className="Page">
         <div className="logo">Chat simulation</div>
-        <Link to="/signup" className='signup'> Sign Up </Link>
-        <Link to="/chatbot" className='test'> Testing </Link>
+        <Link draggable="false" to="/signup" className='signup'> Sign Up </Link>
+        <Link draggable="false" to="/chatbot" className='test'> Testing </Link>
         <motion.div
         initial={{ opacity: 0,y: 20}}
         animate={{opacity: 1, y: 0}}
         transition={{duration: 0.4, ease: "easeOut"}}
         className="bot-image">
-          <img src={robotImg} alt="Robot" />
+          <img src={robotImg} alt="Robot" draggable="false" />
         </motion.div>
         <motion.form
         initial={{ opacity: 0,y: 20}}

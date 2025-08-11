@@ -24,7 +24,7 @@ function SignupPage() {
   return (
     <div className="Page">
       <div className="logo">chat simulation</div>
-      <Link to="/" className='login'> Login </Link>
+      <Link to="/" draggable="false" className='login'> Login </Link>
       <div className="bot-image">
         <img src={robotImg} alt="Robot" />
       </div>
