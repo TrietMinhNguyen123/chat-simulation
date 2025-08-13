@@ -91,6 +91,12 @@ function ChatBot() {
     }
     setInput("");
 
+    if(textareaRef.current){
+      textareaRef.current.style.height = "4vh";
+      textareaRef.current.style.borderRadius = "90px"; 
+      textareaRef.current.style.overflowY = "hidden";
+    }
+
     const ResearchInput = {bot: "🤖 researching, please wait..."};
     let ResearchTiming = setTimeout(() =>{
       setShowMessage(prev =>[...prev, ResearchInput]);
