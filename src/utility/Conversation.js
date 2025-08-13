@@ -41,6 +41,8 @@ function ConversationSave({ id, onClick }) {
     
         localStorage.setItem("chat-messages", JSON.stringify(parse));
         setIsVisible(false);
+
+        window.location.reload()
     }
     
 }
