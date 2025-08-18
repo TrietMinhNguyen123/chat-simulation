@@ -100,7 +100,7 @@ function ChatBot() {
     const ResearchInput = {bot: "🤖 researching, please wait..."};
     let ResearchTiming = setTimeout(() =>{
       setShowMessage(prev =>[...prev, ResearchInput]);
-    }, 100);
+    }, 500);
 
     try {
       const botResponse = await fetchGroq(userInput);
