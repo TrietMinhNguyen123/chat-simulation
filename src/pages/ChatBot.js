@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../pages/styles/Chatbot.css';
 import '../../src/index.css';
 import sendButton from "../img/send.png";
@@ -12,7 +12,7 @@ import Groq from "groq-sdk";
 
 // Setup Groq
 const groq = new Groq({
-  apiKey: process.env.REACT_APP_GROQ_API,
+  apiKey:"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",
   dangerouslyAllowBrowser: true
 });
 
@@ -79,7 +79,7 @@ function ChatBot() {
     localStorage.setItem("chat-messages", JSON.stringify(existingData));
   }, [showMessage, chatSessionId]);
 
-  // ✉️ Send message
+  // Send message
   const handleChat = async (e) => {
     e.preventDefault();
     if (input.trim() === "") return;
